@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>785</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>785</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>US_Cal_Test</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextBrowser" name="textBrowser_note">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>631</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#ff0000;&quot;&gt;US_Cal_Test_AnnexA_E4404B-2.0&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;1、Set E4404B GPIB Address=18&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;2、Set Constellation:QPSK/64QAM&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;       NumFeq:(2:5.1MHz 35MHz   3:5.1MHz 35MHz 64.9MHz  4:5.1MHz 35MHz 64.9MHz 84.9MHz)  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;       NumPower(10:58, 52, 46, 40, 34, 28, 22, 16, 10, 8dBmV)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;	     (8:58, 52, 46, 40, 34, 28, 22, 16dBmV)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;3、Test Result saved in: C:\temp\TestResult\US_Cal_test.txt&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_savefile">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>160</y>
+      <width>54</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SaveFile</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_savefile">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>190</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>C:\temp\TestResults\US_Cal_test.txt</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_constellation">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>270</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_constellation">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>240</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Constellation</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_numfreq">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>240</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>NumFreq</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_numfreq">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>270</y>
+      <width>42</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_numpower">
+    <property name="geometry">
+     <rect>
+      <x>221</x>
+      <y>270</y>
+      <width>51</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_numpower">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>240</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>NumPower</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_numpower_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>240</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PowerIndex</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_resource_name">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>160</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Resource Name</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_resurce_name">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>190</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_readedStr">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>410</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_readstr">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>390</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ReadedStr</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_writestr">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>460</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WriteSting</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_writeStr">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>480</y>
+      <width>621</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Freqcurrent">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>300</y>
+      <width>54</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Freq(MHz)</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_freqCurrent">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>320</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_powerindex">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>270</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_normalCHP">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>300</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>NormalCHPower(dBmV)</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowse_normalCHP">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>320</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_measureCHP">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>370</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_measureCHP">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>350</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MeasureCHPower(dBmV)</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_response">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>570</y>
+      <width>621</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_response">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>550</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Response</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_powerDiff">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>420</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_powerDiff">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>400</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PowerDiff(dB)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_status">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>410</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Status</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_status">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>430</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_status_2">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>410</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stop/Start</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>785</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="action_open"/>
+    <addaction name="action_close"/>
+    <addaction name="action_closeall"/>
+    <addaction name="separator"/>
+    <addaction name="action_pageconf"/>
+    <addaction name="action_printwindow"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_edit">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="action_cut"/>
+    <addaction name="action_copy"/>
+    <addaction name="action_paste"/>
+    <addaction name="action_delete"/>
+    <addaction name="action_init"/>
+   </widget>
+   <widget class="QMenu" name="menu_tool">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <addaction name="action_safe"/>
+   </widget>
+   <widget class="QMenu" name="menu_operation">
+    <property name="title">
+     <string>操作</string>
+    </property>
+    <addaction name="action_run_opeartion"/>
+    <addaction name="action_stop_opeartion"/>
+    <addaction name="separator"/>
+    <addaction name="action_finish_print"/>
+    <addaction name="action_finish_recode"/>
+    <addaction name="action_data_recode"/>
+    <addaction name="separator"/>
+    <addaction name="action_remotate"/>
+   </widget>
+   <widget class="QMenu" name="menu_window">
+    <property name="title">
+     <string>窗口</string>
+    </property>
+    <addaction name="action_window_max"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="action_help"/>
+    <addaction name="action_patent"/>
+    <addaction name="action_about"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_edit"/>
+   <addaction name="menu_operation"/>
+   <addaction name="menu_tool"/>
+   <addaction name="menu_window"/>
+   <addaction name="menu_help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="minimumSize">
+    <size>
+     <width>785</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="separator"/>
+   <addaction name="action_run"/>
+   <addaction name="action_rerun"/>
+   <addaction name="action_stop"/>
+  </widget>
+  <action name="action_open">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="action_close">
+   <property name="text">
+    <string>关闭</string>
+   </property>
+  </action>
+  <action name="action_closeall">
+   <property name="text">
+    <string>全部关闭</string>
+   </property>
+  </action>
+  <action name="action_pageconf">
+   <property name="text">
+    <string>页面设置</string>
+   </property>
+  </action>
+  <action name="action_printwindow">
+   <property name="text">
+    <string>打印窗口</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="action_cut">
+   <property name="text">
+    <string>剪切</string>
+   </property>
+  </action>
+  <action name="action_copy">
+   <property name="text">
+    <string>复制</string>
+   </property>
+  </action>
+  <action name="action_paste">
+   <property name="text">
+    <string>粘贴</string>
+   </property>
+  </action>
+  <action name="action_delete">
+   <property name="text">
+    <string>删除</string>
+   </property>
+  </action>
+  <action name="action_init">
+   <property name="text">
+    <string>重新初始化为默认值</string>
+   </property>
+  </action>
+  <action name="action_run_opeartion">
+   <property name="text">
+    <string>运行</string>
+   </property>
+  </action>
+  <action name="action_stop_opeartion">
+   <property name="text">
+    <string>停止</string>
+   </property>
+  </action>
+  <action name="action_finish_print">
+   <property name="text">
+    <string>结束打印</string>
+   </property>
+  </action>
+  <action name="action_finish_recode">
+   <property name="text">
+    <string>结束时记录</string>
+   </property>
+  </action>
+  <action name="action_data_recode">
+   <property name="text">
+    <string>数据记录</string>
+   </property>
+  </action>
+  <action name="action_remotate">
+   <property name="text">
+    <string>连接远程前面板</string>
+   </property>
+  </action>
+  <action name="action_window_max">
+   <property name="text">
+    <string>最大化窗口</string>
+   </property>
+  </action>
+  <action name="action_help">
+   <property name="text">
+    <string>显示及时帮助</string>
+   </property>
+  </action>
+  <action name="action_patent">
+   <property name="text">
+    <string>专利信息</string>
+   </property>
+  </action>
+  <action name="action_about">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="action_run">
+   <property name="text">
+    <string>运行</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;运行&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </action>
+  <action name="action_rerun">
+   <property name="text">
+    <string>继续运行</string>
+   </property>
+   <property name="toolTip">
+    <string>继续运行</string>
+   </property>
+  </action>
+  <action name="action_stop">
+   <property name="text">
+    <string>中止执行</string>
+   </property>
+   <property name="toolTip">
+    <string>中止执行</string>
+   </property>
+  </action>
+  <action name="action_safe">
+   <property name="text">
+    <string>安全</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
