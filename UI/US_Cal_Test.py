@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from UI.QCustomComboBox import QCustomComboBox
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -49,11 +49,12 @@ class Ui_MainWindow(object):
         self.label_numpower_2.setGeometry(QtCore.QRect(290, 240, 71, 31))
         self.label_numpower_2.setObjectName("label_numpower_2")
         self.label_resource_name = QtWidgets.QLabel(self.centralwidget)
-        self.label_resource_name.setGeometry(QtCore.QRect(450, 160, 81, 31))
+        self.label_resource_name.setGeometry(QtCore.QRect(440, 160, 81, 31))
+        self.label_resource_name.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_resource_name.setObjectName("label_resource_name")
-        self.comboBox_resurce_name = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox_resurce_name.setGeometry(QtCore.QRect(450, 190, 69, 22))
-        self.comboBox_resurce_name.setObjectName("comboBox_resurce_name")
+        self.comboBox_Ports = QCustomComboBox(self.centralwidget)
+        self.comboBox_Ports.setGeometry(QtCore.QRect(450, 190, 69, 22))
+        self.comboBox_Ports.setObjectName("comboBox_Ports")
         self.textBrowser_readedStr = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser_readedStr.setGeometry(QtCore.QRect(50, 410, 231, 41))
         self.textBrowser_readedStr.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
@@ -126,6 +127,9 @@ class Ui_MainWindow(object):
         self.label_status_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_status_2.setGeometry(QtCore.QRect(600, 410, 71, 21))
         self.label_status_2.setObjectName("label_status_2")
+        self.toolButton_choosepath = QtWidgets.QToolButton(self.centralwidget)
+        self.toolButton_choosepath.setGeometry(QtCore.QRect(380, 190, 37, 31))
+        self.toolButton_choosepath.setObjectName("toolButton_choosepath")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 785, 23))
@@ -261,7 +265,7 @@ class Ui_MainWindow(object):
         self.label_numfreq.setText(_translate("MainWindow", "NumFreq"))
         self.label_numpower.setText(_translate("MainWindow", "NumPower"))
         self.label_numpower_2.setText(_translate("MainWindow", "PowerIndex"))
-        self.label_resource_name.setText(_translate("MainWindow", "Resource Name"))
+        self.label_resource_name.setText(_translate("MainWindow", "Ports"))
         self.label_readstr.setText(_translate("MainWindow", "ReadedStr"))
         self.label_writestr.setText(_translate("MainWindow", "WriteSting"))
         self.label_Freqcurrent.setText(_translate("MainWindow", "Freq(MHz)"))
@@ -271,6 +275,7 @@ class Ui_MainWindow(object):
         self.label_powerDiff.setText(_translate("MainWindow", "PowerDiff(dB)"))
         self.label_status.setText(_translate("MainWindow", "Status"))
         self.label_status_2.setText(_translate("MainWindow", "Stop/Start"))
+        self.toolButton_choosepath.setText(_translate("MainWindow", "..."))
         self.menu_file.setTitle(_translate("MainWindow", "文件"))
         self.menu_edit.setTitle(_translate("MainWindow", "编辑"))
         self.menu_tool.setTitle(_translate("MainWindow", "工具"))
