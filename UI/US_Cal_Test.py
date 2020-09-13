@@ -2,18 +2,20 @@
 
 # Form implementation generated from reading ui file 'US_Cal_Test.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from UI.QCustomComboBox import QCustomComboBox
+from UI.QCustomLineEdit import QCustomLineEdit
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(785, 800)
+        MainWindow.resize(785, 667)
         MainWindow.setMaximumSize(QtCore.QSize(785, 800))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -23,37 +25,42 @@ class Ui_MainWindow(object):
         self.label_savefile = QtWidgets.QLabel(self.centralwidget)
         self.label_savefile.setGeometry(QtCore.QRect(50, 160, 54, 31))
         self.label_savefile.setObjectName("label_savefile")
-        self.lineEdit_savefile = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_savefile.setGeometry(QtCore.QRect(50, 190, 331, 31))
+        self.lineEdit_savefile = QCustomLineEdit(self.centralwidget)
+        self.lineEdit_savefile.setGeometry(QtCore.QRect(50, 190, 361, 31))
         self.lineEdit_savefile.setObjectName("lineEdit_savefile")
         self.comboBox_constellation = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox_constellation.setGeometry(QtCore.QRect(50, 270, 69, 22))
+        self.comboBox_constellation.setGeometry(QtCore.QRect(50, 270, 81, 22))
         self.comboBox_constellation.setObjectName("comboBox_constellation")
+        self.comboBox_constellation.addItem("")
+        self.comboBox_constellation.addItem("")
+        self.comboBox_constellation.addItem("")
         self.label_constellation = QtWidgets.QLabel(self.centralwidget)
         self.label_constellation.setGeometry(QtCore.QRect(50, 240, 81, 31))
         self.label_constellation.setObjectName("label_constellation")
         self.label_numfreq = QtWidgets.QLabel(self.centralwidget)
-        self.label_numfreq.setGeometry(QtCore.QRect(160, 240, 51, 31))
+        self.label_numfreq.setGeometry(QtCore.QRect(150, 240, 61, 31))
         self.label_numfreq.setObjectName("label_numfreq")
         self.spinBox_numfreq = QtWidgets.QSpinBox(self.centralwidget)
-        self.spinBox_numfreq.setGeometry(QtCore.QRect(160, 270, 42, 22))
-        self.spinBox_numfreq.setProperty("value", 0)
+        self.spinBox_numfreq.setGeometry(QtCore.QRect(150, 270, 42, 22))
+        self.spinBox_numfreq.setCursor(QtGui.QCursor(QtCore.Qt.UpArrowCursor))
+        self.spinBox_numfreq.setProperty("value", 2)
         self.spinBox_numfreq.setObjectName("spinBox_numfreq")
         self.spinBox_numpower = QtWidgets.QSpinBox(self.centralwidget)
         self.spinBox_numpower.setGeometry(QtCore.QRect(221, 270, 51, 22))
+        self.spinBox_numpower.setProperty("value", 8)
         self.spinBox_numpower.setObjectName("spinBox_numpower")
         self.label_numpower = QtWidgets.QLabel(self.centralwidget)
-        self.label_numpower.setGeometry(QtCore.QRect(220, 240, 51, 31))
+        self.label_numpower.setGeometry(QtCore.QRect(220, 240, 71, 31))
         self.label_numpower.setObjectName("label_numpower")
         self.label_numpower_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_numpower_2.setGeometry(QtCore.QRect(290, 240, 71, 31))
+        self.label_numpower_2.setGeometry(QtCore.QRect(310, 240, 71, 31))
         self.label_numpower_2.setObjectName("label_numpower_2")
         self.label_resource_name = QtWidgets.QLabel(self.centralwidget)
-        self.label_resource_name.setGeometry(QtCore.QRect(440, 160, 81, 31))
+        self.label_resource_name.setGeometry(QtCore.QRect(492, 160, 81, 31))
         self.label_resource_name.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_resource_name.setObjectName("label_resource_name")
         self.comboBox_Ports = QCustomComboBox(self.centralwidget)
-        self.comboBox_Ports.setGeometry(QtCore.QRect(450, 190, 69, 22))
+        self.comboBox_Ports.setGeometry(QtCore.QRect(490, 190, 91, 31))
         self.comboBox_Ports.setObjectName("comboBox_Ports")
         self.textBrowser_readedStr = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser_readedStr.setGeometry(QtCore.QRect(50, 410, 231, 41))
@@ -61,7 +68,7 @@ class Ui_MainWindow(object):
         self.textBrowser_readedStr.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.textBrowser_readedStr.setObjectName("textBrowser_readedStr")
         self.label_readstr = QtWidgets.QLabel(self.centralwidget)
-        self.label_readstr.setGeometry(QtCore.QRect(50, 390, 54, 12))
+        self.label_readstr.setGeometry(QtCore.QRect(50, 390, 71, 16))
         self.label_readstr.setObjectName("label_readstr")
         self.label_writestr = QtWidgets.QLabel(self.centralwidget)
         self.label_writestr.setGeometry(QtCore.QRect(50, 460, 71, 21))
@@ -72,33 +79,33 @@ class Ui_MainWindow(object):
         self.textBrowser_writeStr.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_writeStr.setObjectName("textBrowser_writeStr")
         self.label_Freqcurrent = QtWidgets.QLabel(self.centralwidget)
-        self.label_Freqcurrent.setGeometry(QtCore.QRect(160, 300, 54, 21))
+        self.label_Freqcurrent.setGeometry(QtCore.QRect(150, 300, 71, 21))
         self.label_Freqcurrent.setObjectName("label_Freqcurrent")
         self.textBrowser_freqCurrent = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_freqCurrent.setGeometry(QtCore.QRect(160, 320, 41, 21))
+        self.textBrowser_freqCurrent.setGeometry(QtCore.QRect(150, 320, 41, 21))
         self.textBrowser_freqCurrent.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_freqCurrent.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_freqCurrent.setObjectName("textBrowser_freqCurrent")
         self.textBrowser_powerindex = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_powerindex.setGeometry(QtCore.QRect(290, 270, 51, 21))
+        self.textBrowser_powerindex.setGeometry(QtCore.QRect(310, 270, 51, 21))
         self.textBrowser_powerindex.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_powerindex.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_powerindex.setObjectName("textBrowser_powerindex")
         self.label_normalCHP = QtWidgets.QLabel(self.centralwidget)
-        self.label_normalCHP.setGeometry(QtCore.QRect(290, 300, 151, 21))
+        self.label_normalCHP.setGeometry(QtCore.QRect(310, 300, 151, 21))
         self.label_normalCHP.setObjectName("label_normalCHP")
         self.textBrowse_normalCHP = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowse_normalCHP.setGeometry(QtCore.QRect(290, 320, 111, 21))
+        self.textBrowse_normalCHP.setGeometry(QtCore.QRect(310, 320, 111, 21))
         self.textBrowse_normalCHP.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowse_normalCHP.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowse_normalCHP.setObjectName("textBrowse_normalCHP")
         self.textBrowser_measureCHP = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_measureCHP.setGeometry(QtCore.QRect(290, 370, 111, 21))
+        self.textBrowser_measureCHP.setGeometry(QtCore.QRect(310, 370, 111, 21))
         self.textBrowser_measureCHP.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_measureCHP.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_measureCHP.setObjectName("textBrowser_measureCHP")
         self.label_measureCHP = QtWidgets.QLabel(self.centralwidget)
-        self.label_measureCHP.setGeometry(QtCore.QRect(290, 350, 151, 21))
+        self.label_measureCHP.setGeometry(QtCore.QRect(310, 350, 151, 21))
         self.label_measureCHP.setObjectName("label_measureCHP")
         self.textBrowser_response = QtWidgets.QTextBrowser(self.centralwidget)
         self.textBrowser_response.setGeometry(QtCore.QRect(50, 570, 621, 111))
@@ -109,12 +116,12 @@ class Ui_MainWindow(object):
         self.label_response.setGeometry(QtCore.QRect(50, 550, 71, 21))
         self.label_response.setObjectName("label_response")
         self.textBrowser_powerDiff = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser_powerDiff.setGeometry(QtCore.QRect(290, 420, 111, 21))
+        self.textBrowser_powerDiff.setGeometry(QtCore.QRect(310, 420, 111, 21))
         self.textBrowser_powerDiff.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_powerDiff.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.textBrowser_powerDiff.setObjectName("textBrowser_powerDiff")
         self.label_powerDiff = QtWidgets.QLabel(self.centralwidget)
-        self.label_powerDiff.setGeometry(QtCore.QRect(290, 400, 151, 21))
+        self.label_powerDiff.setGeometry(QtCore.QRect(310, 400, 151, 21))
         self.label_powerDiff.setObjectName("label_powerDiff")
         self.label_status = QtWidgets.QLabel(self.centralwidget)
         self.label_status.setGeometry(QtCore.QRect(530, 410, 54, 12))
@@ -128,11 +135,11 @@ class Ui_MainWindow(object):
         self.label_status_2.setGeometry(QtCore.QRect(600, 410, 71, 21))
         self.label_status_2.setObjectName("label_status_2")
         self.toolButton_choosepath = QtWidgets.QToolButton(self.centralwidget)
-        self.toolButton_choosepath.setGeometry(QtCore.QRect(380, 190, 37, 31))
+        self.toolButton_choosepath.setGeometry(QtCore.QRect(420, 190, 37, 31))
         self.toolButton_choosepath.setObjectName("toolButton_choosepath")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 785, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 785, 22))
         self.menubar.setObjectName("menubar")
         self.menu_file = QtWidgets.QMenu(self.menubar)
         self.menu_file.setObjectName("menu_file")
@@ -251,16 +258,19 @@ class Ui_MainWindow(object):
         self.textBrowser_note.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; font-weight:600; color:#ff0000;\">US_Cal_Test_AnnexA_E4404B-2.0</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#550000;\">1、Set E4404B GPIB Address=18</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#550000;\">2、Set Constellation:QPSK/64QAM</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#550000;\">       NumFeq:(2:5.1MHz 35MHz   3:5.1MHz 35MHz 64.9MHz  4:5.1MHz 35MHz 64.9MHz 84.9MHz)  </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#550000;\">       NumPower(10:58, 52, 46, 40, 34, 28, 22, 16, 10, 8dBmV)</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#550000;\">         (8:58, 52, 46, 40, 34, 28, 22, 16dBmV)</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600; color:#550000;\">3、Test Result saved in: C:\\temp\\TestResult\\US_Cal_test.txt</span></p></body></html>"))
+"</style></head><body style=\" font-family:\'.SF NS Text\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:11pt; font-weight:600; color:#ff0000;\">US_Cal_Test_AnnexA_E4404B-2.0</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:600; color:#550000;\">1、Set E4404B GPIB Address=18</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:600; color:#550000;\">2、Set Constellation:QPSK/64QAM</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:600; color:#550000;\">       NumFeq:(2:5.1MHz 35MHz   3:5.1MHz 35MHz 64.9MHz  4:5.1MHz 35MHz 64.9MHz 84.9MHz)  </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:600; color:#550000;\">       NumPower(10:58, 52, 46, 40, 34, 28, 22, 16, 10, 8dBmV)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:600; color:#550000;\">         (8:58, 52, 46, 40, 34, 28, 22, 16dBmV)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:600; color:#550000;\">3、Test Result saved in: C:\\temp\\TestResult\\US_Cal_test.txt</span></p></body></html>"))
         self.label_savefile.setText(_translate("MainWindow", "SaveFile"))
         self.lineEdit_savefile.setPlaceholderText(_translate("MainWindow", "C:\\temp\\TestResults\\US_Cal_test.txt"))
+        self.comboBox_constellation.setItemText(0, _translate("MainWindow", "QPSK"))
+        self.comboBox_constellation.setItemText(1, _translate("MainWindow", "64QAM"))
+        self.comboBox_constellation.setItemText(2, _translate("MainWindow", "256QAM"))
         self.label_constellation.setText(_translate("MainWindow", "Constellation"))
         self.label_numfreq.setText(_translate("MainWindow", "NumFreq"))
         self.label_numpower.setText(_translate("MainWindow", "NumPower"))
