@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QLineEdit
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal, Qt
 
 
 class QCustomLineEdit(QLineEdit):
@@ -8,9 +8,10 @@ class QCustomLineEdit(QLineEdit):
     def __init__(self, parent=None):
         super(QCustomLineEdit, self).__init__(parent)
 
-    def focusInEvent(self, QFocusEvent):
-        self.clicked_focus.emit()
-        super(QCustomLineEdit, self).focusInEvent(QFocusEvent)
+    def mousePressEvent(self, QMouseEvent):
+        if QMouseEvent.button() == Qt.LeftButton:
+            self.clicked_focus.emit()
+        super(QCustomLineEdit, self).mousePressEvent(QMouseEvent)
 
 
 
