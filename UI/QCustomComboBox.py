@@ -6,7 +6,7 @@ import logging
 
 
 class QCustomComboBox(QComboBox):
-    # popupAboutToBeShown = pyqtSignal()
+    # popupAboutToBeShown = pyqtSignal(str)
 
     def __init__(self, parent=None):
         super(QCustomComboBox, self).__init__(parent)
@@ -23,6 +23,10 @@ class QCustomComboBox(QComboBox):
                 self.insertItem(index, port)
                 index += 1
         super(QCustomComboBox, self).showPopup()
+
+    # def currentTextChanged(self, p_str):
+    #     self.popupAboutToBeShown.emit(p_str)
+    #     super(QCustomComboBox, self).currentTextChanged(p_str)
 
     @staticmethod
     def scan_ports():
