@@ -7,11 +7,10 @@ import time
 from send2trash import send2trash
 import logging
 from serial import Serial
+import pyvisa
 
 
 class SerialWork(QObject):
-    readStart = pyqtSignal()
-    writeStart = pyqtSignal()
 
     def __init__(self, port=None, bounds=115200, timeout=10, parent=None):
         super(SerialWork, self).__init__(parent)
@@ -21,6 +20,8 @@ class SerialWork(QObject):
         self.freq_nums = None
         self.power_nums = None
         self.module = None
+        # 打开E4404B GPIB口，并空其配置
+        self.init_e4404b()
 
     def init_config(self, freq_num, power_num, module):
         if freq_num == 2:
@@ -47,8 +48,10 @@ class SerialWork(QObject):
             self.module = module
 
     def run_serial(self):
-        print('run the serial', self.module)
-        print('current threading id: ', int(QThread.currentThreadId()))
+        # print('run the serial', self.module)
+        # print('current threading id: ', int(QThread.currentThreadId()))
+        # self.init_e4404b()
+        # 打开串口
         try:
             self.serial = Serial(self.port, self.bounds)
         except Exception as e:
@@ -59,13 +62,14 @@ class SerialWork(QObject):
         if os.path.exists(os.getcwd().join('/test.log')):
             send2trash(os.getcwd().join('/test.log'))
         log_file = open(os.getcwd() + '/test.log', 'w+')
-
+        self.instrument.open()
         # 记录读取到的信息
         for freq in self.freq_nums:
             for power in self.power_nums:
                 self.write_us_trans(self.module, freq, power)
-                self.read_msg(log_file)
-                time.sleep(2)
+                self.write_e4404b(freq)
+                # self.read_msg(log_file)
+                # time.sleep(2)
 
     def read_msg(self, log_file):
         log_str = str(self.serial.readline().decode('utf-8', errors='ignore'))
@@ -82,15 +86,53 @@ class SerialWork(QObject):
         self.serial.write('cd /cm\r\n'.encode())
 
     def write_us_trans(self, modu, freq, pwr):
-        transmit = 'us_transmit {} 0.16 {} {} tdma 0\r\n'.format(modu, freq, pwr)
+        transmit = 'us_transmit {} 0.16 {} {} tdma 0\r\n'.format(modu.lower(), freq, pwr)
         self.serial.write('us_reset\r'.encode())
         self.serial.write(transmit.encode())
         print(transmit)
         time.sleep(2)
 
+    def init_e4404b(self):
+        resource_manager = pyvisa.ResourceManager()
+        gpib_list = resource_manager.list_resources()
+        print(gpib_list)
+        for com in gpib_list:
+            print(com)
+            if '::18::INSTR' in com:
+                try:
+                    self.instrument = resource_manager.open_resource(com)
+                    self.instrument.write('*CLS\n')
+                    self.instrument.write('*RST\n')
+                    # 设置默认初始频点
+                    self.instrument.write('SENS:FREQ:CENT 8MHz\n')
+                    # 设置默认单位
+                    self.instrument.write('UNIT:POW DBMV\n')
+                    # 设置measure chanel power
+                    self.instrument.write(':CONFigure:CHPower\n')
+                    time.sleep(1)
+                    # 设置测量带宽
+                    self.instrument.write('CHP:BWID:INT 0.2MHz\n')
+                    self.instrument.write('CHP:FREQ:SPAN 0.4MHz\n')
+
+                    self.instrument.write("INIT:CONT 1\n")
+                    self.instrument.write('CHP:AVER ON\n')
+                    self.instrument.write('CHP:AVER:COUN 20\n')
+                    self.instrument.write('CHP:AVG:TCON EXP\n')
+                    time.sleep(5)
+                except Exception as error:
+                    logging.error(str(error))
+                break
+
+    def write_e4404b(self, freq):
+        self.instrument.write("SENS:FREQ:CENT {}MHz\n".format(freq))
+        time.sleep(3)
+        power = self.instrument.query(':FETCh:CHPower:CHPower?')
+        time.sleep(1)
+        print('Power: ', round(float(power), 2))
+
 
 class UsTestMain(QMainWindow, Ui_MainWindow):
-    paramChanged = pyqtSignal(int, int, str)
+    # paramChanged = pyqtSignal(int, int, str)
 
     def __init__(self):
         super(UsTestMain, self).__init__()
@@ -141,6 +183,9 @@ class UsTestMain(QMainWindow, Ui_MainWindow):
     def stop(self):
         #  关闭串口
         self.serial_op.serial.close()
+
+        # 关闭E4404B
+        self.serial_op.instrument.close()
         # 结束子进程
         self.serial_thread.exit()
         print("Stop Test")
